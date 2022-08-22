@@ -4,25 +4,21 @@
   <arg name="standalone" default="true" />
 
   <remap from="joint_states" to="tilt_motor/joint_states"/>
-  <node unless="$(arg sim)" name="epos_hardware" pkg="epos_hardware" type="epos_hardware_node" args="tilt_joint_motor" output="screen">
-    <rosparam command="load" file="$(find tilt_driver)/config/tilt_controller.yaml" />
+  <node unless="$(arg sim)" name="tilt_motor" pkg="epos_hardware" type="epos_hardware_node" args="tilt_joint_motor" output="screen">
+    <rosparam command="load" file="$(find tilt_driver)/config/tilt_driver.yaml" />
   </node>
 
-  <node if="$(arg sim)" name="tilt_sim" pkg="basic_sim" type="sim_node" output="screen">
+  <node if="$(arg sim)" name="tilt_motor" pkg="basic_sim" type="sim_node" output="screen">
+    <rosparam command="load" file="$(find tilt_driver)/config/sim_tilt_driver.yaml" />
     <param name="load_urdf" value="$(eval not standalone)" />
-    <rosparam command="load" file="$(find tilt_driver)/config/sim_tilt_controller.yaml" />
   </node>
 
-  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-        output="screen" args="tilt_motor/joint_state_controller tilt_motor/position_controller">
-  </node>
-
-  <param name="velocity_controller/type" value="velocity_controllers/JointVelocityController" />
-  <param name="velocity_controller/joint" value="tilt_joint" />
-  <param name="tilt_motor/position_controller/type" value="position_controllers/JointPositionController" />
-  <param name="tilt_motor/position_controller/joint" value="tilt_joint" />
-  <param name="tilt_motor/joint_state_controller/type" value="joint_state_controller/JointStateController" />
-  <param name="tilt_motor/joint_state_controller/publish_rate" value="50" />
+  <group ns="tilt_motor">
+    <rosparam command="load" file="$(find tilt_driver)/config/controllers.yaml" />
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" args="joint_state_controller position_controller">
+    </node>
+  </group>
 
 </launch>
 

@@ -1,0 +1,3 @@
+joints:
+  - tilt_joint
+sim_control_mode: 0

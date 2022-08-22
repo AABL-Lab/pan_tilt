@@ -1,0 +1,4 @@
+device_name: /dev/tty_motor_pan
+baud_rate: 57600
+protocol_version: 2.0
+pan_id: 1

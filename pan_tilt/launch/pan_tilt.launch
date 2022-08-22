@@ -1,15 +1,18 @@
 <launch>
-  <arg name="robot_name" />
+  <arg name="robot_name" default="beep" />
   <arg name="sim" default="false" />
+  <arg name="standalone" default="true" />
 
-  <!-- TILT -->
-  <node name="tilt_driver_launcher" pkg="poli_pan_tilt" type="launch_tilt_motor.py" output="screen"/>
-  <!-- <include file="$(find poli_pan_tilt)/launch/tilt_control.launch"> -->
-  	<!-- <arg name="robot_name" value="$(arg robot_name)"/> -->
-  <!-- </include> -->
-
-  <!-- PAN -->
-  <include file="$(find poli_pan_tilt)/launch/pan_control.launch">
-  	<arg name="robot_name" value="$(arg robot_name)"/>
+  <include file="$(find tilt_driver)/launch/tilt_driver.launch">
+    <arg name="robot_name" value="$(arg robot_name)"/> 
+    <arg name="sim" value="$(arg sim)" />
+    <arg name="standalone" value="$(arg standalone)" />
   </include>
+
+  <include file="$(find pan_driver)/launch/pan_driver.launch">
+  	<arg name="robot_name" value="$(arg robot_name)"/>
+    <arg name="sim" value="$(arg sim)" />
+    <arg name="standalone" value="$(arg standalone)" />
+  </include>
+
 </launch>

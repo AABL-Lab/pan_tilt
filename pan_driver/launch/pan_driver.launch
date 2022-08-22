@@ -1,0 +1,28 @@
+<launch>
+  <arg name="robot_name" />
+  <arg name="sim" default="false" />
+  <arg name="standalone" default="true" />
+
+
+  <node unless="$(arg sim)" name="poli_pan_position_control" pkg="poli_pan_tilt" type="poli_pan_position_control" output="screen">
+    <rosparam>
+      profile_velocity: 100
+      profile_acceleration: 10
+    </rosparam>
+  </node>
+
+  <group if="$(arg sim)">
+    <node name="pan_motor" pkg="basic_sim" type="sim_node" output="screen">
+      <param name="load_urdf" value="$(eval not standalone)" />
+      <rosparam command="load" file="$(find pan_driver)/config/sim_pan_driver.yaml" />
+    </node>
+    <group ns="pan_motor">
+      <rosparam command="load" file="$(find pan_driver)/config/controllers.yaml" />
+      <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+            output="screen" args="joint_state_controller position_controller">
+      </node>
+    </group>
+  </group>
+
+
+</launch>
