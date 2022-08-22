@@ -162,7 +162,7 @@ bool PositionControl::checkLoadDynamixel()
 
 bool PositionControl::initDynamixelStatePublisher()
 {
-  dynamixel_state_list_pub_ = node_handle_.advertise<sensor_msgs::JointState>("/pan_motor/joint_state", 10);
+  dynamixel_state_list_pub_ = node_handle_.advertise<sensor_msgs::JointState>("/pan_motor/joint_states", 10);
 }
 
 bool PositionControl::initDynamixelInfoServer()
