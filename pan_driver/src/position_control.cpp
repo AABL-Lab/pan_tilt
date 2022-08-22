@@ -16,7 +16,7 @@
 
 /* Authors: Taehoon Lim (Darby) */
 
-#include "poli_pan_tilt/position_control.h"
+#include "pan_tilt/position_control.h"
 #include "sensor_msgs/JointState.h"
 
 using namespace position_control;

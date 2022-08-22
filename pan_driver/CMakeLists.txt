@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(poli_pan_tilt)
+project(pan_driver)
 
 add_compile_options(-std=c++11)
 
@@ -14,7 +14,8 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES poli_pan_tilt
+  LIBRARIES poli_pan_position_control
+  EXECUTABLES sim_node
   CATKIN_DEPENDS roscpp rospy std_msgs dynamixel_workbench_msgs dynamixel_workbench_toolbox
 )
 
@@ -26,3 +27,5 @@ include_directories(
 add_executable(poli_pan_position_control src/position_control.cpp)
 add_dependencies(poli_pan_position_control ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(poli_pan_position_control ${catkin_LIBRARIES})
+
+

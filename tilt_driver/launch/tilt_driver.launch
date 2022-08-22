@@ -1,7 +1,16 @@
 <launch>
+  <arg name="robot_name" default="beep" />
+  <arg name="sim" default="false" />
+  <arg name="standalone" default="true" />
+
   <remap from="joint_states" to="tilt_motor/joint_states"/>
-  <node name="epos_hardware" pkg="epos_hardware" type="epos_hardware_node" args="tilt_joint_motor" output="screen">
-    <rosparam command="load" file="$(find poli_pan_tilt)/config/tilt_controller.yaml" />
+  <node unless="$(arg sim)" name="epos_hardware" pkg="epos_hardware" type="epos_hardware_node" args="tilt_joint_motor" output="screen">
+    <rosparam command="load" file="$(find tilt_driver)/config/tilt_controller.yaml" />
+  </node>
+
+  <node if="$(arg sim)" name="tilt_sim" pkg="basic_sim" type="sim_node" output="screen">
+    <param name="load_urdf" value="$(eval not standalone)" />
+    <rosparam command="load" file="$(find tilt_driver)/config/sim_tilt_controller.yaml" />
   </node>
 
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"

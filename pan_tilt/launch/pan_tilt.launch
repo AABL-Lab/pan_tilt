@@ -1,5 +1,6 @@
 <launch>
   <arg name="robot_name" />
+  <arg name="sim" default="false" />
 
   <!-- TILT -->
   <node name="tilt_driver_launcher" pkg="poli_pan_tilt" type="launch_tilt_motor.py" output="screen"/>
