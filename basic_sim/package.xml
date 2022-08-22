@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <name>basic_sim</name>
+  <version>0.0.1</version>
+  <description>The poli_pan_tilt package</description>
+
+  <maintainer email="maxsvetlik@utexas.edu">Max Svetlik</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>controller_manager</build_depend>
+  <build_depend>hardware_interface</build_depend>
+  <build_depend>urdf</build_depend>
+  
+  <run_depend>roscpp</run_depend>
+  <run_depend>controller_manager</run_depend>
+  <run_depend>hardware_interface</run_depend>
+  <run_depend>urdf</run_depend>
+
+  <export>
+  </export>
+</package>
