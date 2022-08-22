@@ -1,3 +1,0 @@
-/home/siml/gravity_estimation/CMakeFiles/rebuild_cache.dir
-/home/siml/gravity_estimation/CMakeFiles/edit_cache.dir
-/home/siml/gravity_estimation/CMakeFiles/gravestim.dir
