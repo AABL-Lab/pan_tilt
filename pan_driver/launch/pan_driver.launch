@@ -4,7 +4,7 @@
   <arg name="standalone" default="true" />
 
 
-  <node unless="$(arg sim)" name="poli_pan_position_control" pkg="poli_pan_tilt" type="poli_pan_position_control" output="screen">
+  <node unless="$(arg sim)" name="poli_pan_position_control" pkg="pan_driver" type="poli_pan_position_control" output="screen">
     <rosparam>
       profile_velocity: 100
       profile_acceleration: 10
