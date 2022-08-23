@@ -44,7 +44,7 @@
 int main(int argc, char** argv)
 {
   ros::init(argc, argv, "sim_hw_interface");
-  ros::NodeHandle nh("~");
+  ros::NodeHandle nh, pnh("~");
 
   // NOTE: We run the ROS loop in a separate thread as external calls such
   // as service callbacks to load controllers can block the (main) control loop
@@ -52,7 +52,7 @@ int main(int argc, char** argv)
   spinner.start();
 
   // Create the hardware interface specific to your robot
-  ros_control_boilerplate::SimHWInterface sim_hw_interface(nh);
+  ros_control_boilerplate::SimHWInterface sim_hw_interface(pnh);
   sim_hw_interface.init();
   if (!ros::ok()) {
     return 1;

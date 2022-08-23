@@ -49,16 +49,17 @@ GenericHWInterface::GenericHWInterface(const ros::NodeHandle &nh, urdf::Model *u
   , use_rosparam_joint_limits_(false)
   , use_soft_limits_if_available_(false)
 {
+  ros::NodeHandle pnh("~");
   // Check if the URDF model needs to be loaded
   bool load_urdf;
-  nh.param("load_urdf", load_urdf, true);
+  pnh.param("load_urdf", load_urdf, true);
   if (urdf_model == NULL && load_urdf)
     loadURDF(nh, "robot_description");
   else
     urdf_model_ = urdf_model;
 
   // Load rosparams
-  if (!nh.getParam("joints", joint_names_)) {
+  if (!pnh.getParam("joints", joint_names_)) {
     ROS_ERROR_STREAM("Required param 'joints' not found");
     ros::shutdown();
   }

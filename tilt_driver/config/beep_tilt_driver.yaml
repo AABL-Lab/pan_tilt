@@ -1,0 +1,32 @@
+tilt_joint_motor:
+  actuator_name: 'tilt_joint_actuator'
+  serial_number: '0x602084013232'
+  operation_mode: 'profile_position'
+  clear_faults: true
+
+  motor:
+    type: 10
+    ec_motor:
+      nominal_current: 2.000
+      max_output_current: 4.000
+      thermal_time_constant: 40
+      number_of_pole_pairs: 7
+
+  sensor:
+    type: 2
+    incremental_encoder:
+      resolution: 4096
+      inverted_polarity: false
+
+  safety:
+    max_following_error: 200000
+    max_profile_velocity: 3125
+    max_acceleration: 4294967
+
+  position_regulator:
+    p: 577
+    i: 868
+    d: 2021
+    feed_forward:
+      velocity: 1924
+      acceleration: 1538
