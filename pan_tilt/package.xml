@@ -2,12 +2,15 @@
 <package>
   <name>pan_tilt</name>
   <version>0.0.1</version>
-  <description>The poli_pan_tilt package</description>
+  <description>The pan_tilt package</description>
 
-  <maintainer email="maxsvetlik@utexas.edu">Max Svetlik</maintainer>
+  <maintainer email="reuben.aronson@tufts.edu">Reuben Aronson</maintainer>
   <license>BSD</license>
 
   
+  <run_depend>pan_driver</run_depend>
+  <run_depend>tilt_driver</run_depend>
+
   <export>
   </export>
 </package>
