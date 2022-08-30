@@ -1,4 +1,13 @@
 <launch>
+
+  <!--
+    NOTE (rma 29-Aug-2022): Because of how roslaunch works, all packages mentioned anywhere in a
+    launch file must be known to ROS for the file to run, even if the packages
+    are never actually used. If e.g. pan_driver does not build, this launch
+    file will fail, even if you're running in simulation mode. To resolve this
+    issue, instead launch sim_pan_tilt.launch.
+  -->
+
   <arg name="robot_name" default="beep" />
   <arg name="sim" default="false" />
   <arg name="standalone" default="true" />

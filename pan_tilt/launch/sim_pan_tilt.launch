@@ -1,0 +1,18 @@
+<launch>
+  <arg name="robot_name" default="beep" />
+  <arg name="sim" value="true" />
+  <arg name="standalone" default="true" />
+
+  <include file="$(find pan_tilt)/launch/sim_tilt_driver.launch">
+    <arg name="robot_name" value="$(arg robot_name)"/> 
+    <arg name="sim" value="$(arg sim)" />
+    <arg name="standalone" value="$(arg standalone)" />
+  </include>
+
+  <include file="$(find pan_tilt)/launch/sim_pan_driver.launch">
+  	<arg name="robot_name" value="$(arg robot_name)"/>
+    <arg name="sim" value="$(arg sim)" />
+    <arg name="standalone" value="$(arg standalone)" />
+  </include>
+
+</launch>

@@ -2,13 +2,6 @@
   <arg name="robot_name" />
   <arg name="sim" default="false" />
   <arg name="standalone" default="true" />
-
-  <node unless="$(arg sim)" name="poli_pan_position_control" pkg="pan_driver" type="poli_pan_position_control" output="screen">
-    <rosparam>
-      profile_velocity: 100
-      profile_acceleration: 10
-    </rosparam>
-  </node>
   
   <group if="$(arg sim)" ns="pan_motor">
     <node name="pan_motor_sim" pkg="basic_sim" type="sim_node" output="screen">
