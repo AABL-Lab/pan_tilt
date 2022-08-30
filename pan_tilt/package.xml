@@ -10,6 +10,8 @@
   
   <run_depend>pan_driver</run_depend>
   <run_depend>tilt_driver</run_depend>
+  <run_depend>basic_sim</run_depend>
+  <run_depend>poli2_description</run_depend>
 
   <export>
   </export>
