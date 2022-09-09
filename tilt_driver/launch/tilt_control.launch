@@ -3,7 +3,7 @@
   <arg name="sim" default="false" />
 
   <!-- TILT -->
-  <node name="tilt_driver_launcher" pkg="poli_pan_tilt" type="launch_tilt_motor.py" output="screen"/>
+  <node name="tilt_driver_launcher" pkg="tilt_driver" type="launch_tilt_motor.py" output="screen"/>
   <!-- <include file="$(find poli_pan_tilt)/launch/tilt_control.launch"> -->
   	<!-- <arg name="robot_name" value="$(arg robot_name)"/> -->
   <!-- </include> -->

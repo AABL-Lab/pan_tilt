@@ -16,8 +16,8 @@
 
 /* Authors: Taehoon Lim (Darby) */
 
-#ifndef POLI_PAN_TILT_POSITION_CONTROL_H
-#define POLI_PAN_TILT_POSITION_CONTROL_H
+#ifndef PAN_TILT_POSITION_CONTROL_H
+#define PAN_TILT_POSITION_CONTROL_H
 
 #include <ros/ros.h>
 
@@ -94,4 +94,4 @@ class PositionControl
 };
 }
 
-#endif //POLI_PAN_TILT_POSITION_CONTROL_H
+#endif //PAN_TILT_POSITION_CONTROL_H

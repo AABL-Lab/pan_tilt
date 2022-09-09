@@ -16,8 +16,8 @@
 
 /* Authors: Taehoon Lim (Darby) */
 
-#ifndef POLI_PAN_TILT_MULTI_PORT_H
-#define POLI_PAN_TILT_MULTI_PORT_H
+#ifndef PAN_TILT_MULTI_PORT_H
+#define PAN_TILT_MULTI_PORT_H
 
 #include <ros/ros.h>
 

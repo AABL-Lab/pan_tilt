@@ -60,7 +60,7 @@ class LaunchTiltMotor(object):
 
         tilt_control_uuid = roslaunch.rlutil.get_or_generate_uuid(None, False)
         roslaunch.configure_logging(tilt_control_uuid)
-        launch = roslaunch.parent.ROSLaunchParent(tilt_control_uuid, [rospack.get_path('poli_pan_tilt')+launch_file_name_tilt_control])
+        launch = roslaunch.parent.ROSLaunchParent(tilt_control_uuid, [rospack.get_path('tilt_driver')+launch_file_name_tilt_control])
         launch.start()
         
         # wait for EPOS driver to start
