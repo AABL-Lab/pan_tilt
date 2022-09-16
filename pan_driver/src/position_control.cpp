@@ -66,7 +66,7 @@ bool PositionControl::loadDynamixel()
 
   dynamixel_driver::DynamixelInfo *pan_info = new dynamixel_driver::DynamixelInfo;
 
-  pan_info->lode_info.device_name      = node_handle_.param<std::string>("device_name", "/dev/ttyUSB0");
+  pan_info->lode_info.device_name      = node_handle_.param<std::string>("device_name", "/dev/tty_motor_pan");
   pan_info->lode_info.baud_rate        = node_handle_.param<int>("baud_rate", 57600);
   pan_info->lode_info.protocol_version = node_handle_.param<float>("protocol_version", 2.0);
 
