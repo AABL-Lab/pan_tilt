@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>pan_tilt_client</name>
+  <version>0.0.1</version>
+  <description>The pan_tilt client package</description>
+
+  <maintainer email="james.staley625703@tufts.edu">James Staley</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>message_runtime</run_depend>
+  <run_depend>pan_driver</run_depend>
+  <run_depend>tilt_driver</run_depend>
+  <run_depend>rospy</run_depend>
+
+  <export>
+  </export>
+</package>

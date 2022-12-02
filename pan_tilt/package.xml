@@ -7,6 +7,7 @@
   <maintainer email="reuben.aronson@tufts.edu">Reuben Aronson</maintainer>
   <license>BSD</license>
 
+  <run_depend>message_runtime</run_depend>
   
   <run_depend>pan_driver</run_depend>
   <run_depend>tilt_driver</run_depend>
